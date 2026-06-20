@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mcp-context-budget.danmercede.com/" />
+  <title>mcp-context-budget — Measure &amp; enforce MCP tool-surface budgets</title>
+  <meta name="description"
+    content="mcp-context-budget is a local-first, MIT-licensed CLI that measures the token budget each MCP server adds to your coding agent, selects a lean tool set, and fails CI when the tool surface exceeds budget." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="mcp-context-budget" />
+  <meta property="og:title" content="mcp-context-budget — Measure &amp; enforce MCP tool-surface budgets" />
+  <meta property="og:description"
+    content="A local-first, MIT-licensed CLI that measures the token budget each MCP server adds to your coding agent, selects a lean tool set, and enforces it in CI." />
+  <meta property="og:url" content="https://mcp-context-budget.danmercede.com/" />
+  <meta property="og:image" content="https://mcp-context-budget.danmercede.com/og-card.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="mcp-context-budget — measure and enforce MCP tool-surface budgets" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@danmercede" />
+  <meta name="twitter:creator" content="@danmercede" />
+  <meta name="twitter:title" content="mcp-context-budget — Measure &amp; enforce MCP tool-surface budgets" />
+  <meta name="twitter:description"
+    content="A local-first, MIT-licensed CLI that measures the token budget each MCP server adds to your coding agent, selects a lean tool set, and enforces it in CI." />
+  <meta name="twitter:image" content="https://mcp-context-budget.danmercede.com/og-card.png" />
+  <meta name="twitter:image:alt" content="mcp-context-budget — measure and enforce MCP tool-surface budgets" />
+
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Structured data: SoftwareSourceCode + SoftwareApplication for the tool,
+       backlinking author/publisher to the hub Person (danmercede.com/#person).
+       Static so crawlers see it without executing JS. -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://mcp-context-budget.danmercede.com/#software",
+          "name": "mcp-context-budget",
+          "description": "Local-first MCP context budget and tool-selection verifier for agentic coding environments. Measures the token budget each MCP server adds, selects a lean tool set, and enforces it in CI.",
+          "url": "https://mcp-context-budget.danmercede.com/",
+          "codeRepository": "https://github.com/OrionArchitekton/mcp-context-budget",
+          "programmingLanguage": "Python",
+          "runtimePlatform": "Python 3.11+",
+          "license": "https://opensource.org/licenses/MIT",
+          "author": { "@id": "https://www.danmercede.com/#person" },
+          "maintainer": { "@id": "https://www.danmercede.com/#person" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://mcp-context-budget.danmercede.com/#application",
+          "name": "mcp-context-budget",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS, Windows (Python 3.11+ or Docker)",
+          "description": "A local-first command-line tool that scans an MCP config, measures schema and response token budgets, selects a task-relevant tool set, and fails CI when the tool surface exceeds budget.",
+          "url": "https://mcp-context-budget.danmercede.com/",
+          "softwareVersion": "0.3.0",
+          "isAccessibleForFree": true,
+          "license": "https://opensource.org/licenses/MIT",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "author": { "@id": "https://www.danmercede.com/#person" },
+          "publisher": { "@id": "https://www.danmercede.com/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://www.danmercede.com/#person",
+          "name": "Dan Mercede",
+          "url": "https://www.danmercede.com"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Fonts: Inter for UI, JetBrains Mono for code/terminal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind is bundled at build time (compiled stylesheet emitted by Vite);
+       no render-blocking CDN JIT compiler. Base/print styles live in index.css. -->
+</head>
+
+<body class="bg-white text-neutral-900 antialiased">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
