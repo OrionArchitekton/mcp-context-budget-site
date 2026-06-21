@@ -33,12 +33,12 @@ const CommandBlock: React.FC<{ title: string; note?: string; command: string }> 
         {note && <span className="font-mono text-[11px] text-neutral-500">{note}</span>}
       </div>
       <div className="relative group">
-        <pre className="bg-neutral-900 text-neutral-100 rounded-md p-4 overflow-x-auto font-mono text-[13px] leading-relaxed">
+        <pre className="bg-neutral-900 text-neutral-100 rounded-md p-4 pr-16 overflow-x-auto font-mono text-[13px] leading-relaxed">
           <code>{command}</code>
         </pre>
         <button
           onClick={copy}
-          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors"
+          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white bg-neutral-900/90 backdrop-blur-sm border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors"
           aria-label={`Copy command: ${title}`}
         >
           {copied ? 'Copied' : 'Copy'}

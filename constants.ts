@@ -30,7 +30,7 @@ export const PRODUCT_DATA: ProductData = {
   whatItDoes: {
     heading: 'What it does',
     body:
-      'A local-first CLI that scans your MCP config, measures the token budget each server and tool adds, selects a lean task-relevant tool set, and ENFORCES it in CI — failing the build when the surface exceeds budget. No runtime service, no proxy, nothing leaves your machine.',
+      'A local-first CLI that scans your MCP config, measures the token budget each server and tool adds, selects a lean task-relevant tool set, and enforces the budget in CI — failing the build when the surface exceeds budget. No runtime service, no proxy, nothing leaves your machine.',
   },
 
   cta: {
@@ -43,7 +43,7 @@ export const PRODUCT_DATA: ProductData = {
   quickstart: {
     heading: 'Quickstart',
     intro:
-      'Not on PyPI — install from source or run the Docker image. The core CLI has no external runtime dependency.',
+      'Install from source or run the Docker image — PyPI packaging is not published yet. The core CLI has no external runtime dependency.',
     blocks: [
       {
         title: 'Install from source',
