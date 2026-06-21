@@ -38,7 +38,7 @@ const CommandBlock: React.FC<{ title: string; note?: string; command: string }> 
         </pre>
         <button
           onClick={copy}
-          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white bg-neutral-900/90 backdrop-blur-sm border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors"
+          className="no-print absolute top-2 right-2 text-[10px] uppercase tracking-wider font-mono text-neutral-400 hover:text-white bg-neutral-900/70 backdrop-blur-sm border border-neutral-700 hover:border-neutral-400 rounded px-2 py-1 transition-colors"
           aria-label={`Copy command: ${title}`}
         >
           {copied ? 'Copied' : 'Copy'}
