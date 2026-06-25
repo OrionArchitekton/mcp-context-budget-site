@@ -1,13 +1,26 @@
 {
-    "headers": [
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
         {
-            "source": "/assets/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
+          "type": "host",
+          "value": "mcp-context-budget.danmercede.com"
         }
-    ]
+      ],
+      "destination": "https://www.danmercede.com/works/mcp-context-budget/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
 }

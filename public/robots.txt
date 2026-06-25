@@ -30,4 +30,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://mcp-context-budget.danmercede.com/sitemap.xml
+Sitemap: https://www.danmercede.com/works/mcp-context-budget/sitemap.xml
