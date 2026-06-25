@@ -17,7 +17,7 @@ export const PRODUCT_DATA: ProductData = {
     'Measure and enforce MCP tool-surface budgets before your coding agent starts.',
   credibility:
     'Open source (MIT) · Local-first · Dependency-free core · CI-enforceable.',
-  canonical: 'https://mcp-context-budget.danmercede.com/',
+  canonical: 'https://www.danmercede.com/works/mcp-context-budget/',
   metaDescription:
     'mcp-context-budget is a local-first, MIT-licensed CLI that measures the token budget each MCP server adds to your coding agent, selects a lean tool set, and fails CI when the tool surface exceeds budget.',
 
