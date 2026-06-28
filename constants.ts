@@ -1,15 +1,16 @@
 import { ProductData } from './types';
 
 const GITHUB = 'https://github.com/OrionArchitekton/mcp-context-budget';
-const RELEASE = 'https://github.com/OrionArchitekton/mcp-context-budget/releases/tag/v0.3.0';
+const RELEASE = 'https://github.com/OrionArchitekton/mcp-context-budget/releases/tag/v0.4.0';
+const PYPI = 'https://pypi.org/project/mcp-context-budget/';
 
 /**
  * Single source of truth for the mcp-context-budget microsite.
  *
  * All install/usage/demo content is GROUNDED in the real tool repo
- * (README.md, CHANGELOG.md, cli.py, pyproject.toml as of v0.3.0). The tool is
- * GitHub-release / Docker only — NOT on PyPI — so the quickstart never claims a
- * `pip install mcp-context-budget` PyPI command.
+ * (README.md, CHANGELOG.md, cli.py, pyproject.toml as of v0.4.0). The tool is
+ * published to PyPI as of v0.4.0 (also GitHub-release / Docker), so the
+ * quickstart leads with `pip install mcp-context-budget`.
  */
 export const PRODUCT_DATA: ProductData = {
   name: 'mcp-context-budget',
@@ -36,15 +37,20 @@ export const PRODUCT_DATA: ProductData = {
   cta: {
     primaryLabel: 'View on GitHub',
     primaryUrl: GITHUB,
-    secondaryLabel: 'Read the v0.3.0 release notes',
+    secondaryLabel: 'Read the v0.4.0 release notes',
     secondaryUrl: RELEASE,
   },
 
   quickstart: {
     heading: 'Quickstart',
     intro:
-      'Install from source or run the Docker image — PyPI packaging is not published yet. The core CLI has no external runtime dependency.',
+      'Install from PyPI, from source, or run the Docker image. The core CLI has no external runtime dependency.',
     blocks: [
+      {
+        title: 'Install from PyPI',
+        note: 'Requires Python 3.11+',
+        command: 'pip install mcp-context-budget',
+      },
       {
         title: 'Install from source',
         note: 'Requires Python 3.11+',
@@ -77,7 +83,7 @@ export const PRODUCT_DATA: ProductData = {
     ],
   },
 
-  // Command surface verified against mcp_context_budget/cli.py subparsers (v0.3.0).
+  // Command surface verified against mcp_context_budget/cli.py subparsers (v0.4.0).
   commands: [
     {
       name: 'scan',
@@ -195,7 +201,8 @@ export const PRODUCT_DATA: ProductData = {
 
   links: [
     { label: 'GitHub repository', url: GITHUB, primary: true },
-    { label: 'v0.3.0 release notes', url: RELEASE, primary: true },
+    { label: 'PyPI package', url: PYPI, primary: true },
+    { label: 'v0.4.0 release notes', url: RELEASE, primary: true },
     { label: 'Dan Mercede', url: 'https://www.danmercede.com' },
   ],
 
