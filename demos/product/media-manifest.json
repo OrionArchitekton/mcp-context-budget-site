@@ -1,0 +1,58 @@
+{
+  "demonstrated_package": "mcp-context-budget==0.4.0",
+  "input": "bundled synthetic fixture, static and offline",
+  "presentation": "edited replay of recorded CLI output excerpts",
+  "narration": "local synthetic narration based on Dan voice",
+  "sha256": "6f788dd2b596ccde54bfdf773f1fa59b9f7cf38c4659c20a7e592eb9c0e86882",
+  "duration_seconds": 44.6,
+  "streams": {
+    "videoStreams": 1,
+    "audioStreams": 1,
+    "videoCodec": "h264",
+    "pixFmt": "yuv420p",
+    "width": 1920,
+    "height": 1080,
+    "frameRate": "30/1",
+    "avgFrameRate": "30/1",
+    "sampleAspectRatio": "1:1",
+    "audioCodec": "aac",
+    "durationSec": 44.6,
+    "videoDurationSec": 44.533333,
+    "audioDurationSec": 44.6,
+    "audioSampleRate": 48000,
+    "rotationDeg": 0
+  },
+  "aligned_narration": [
+    {
+      "shotId": "problem",
+      "timing": "aligned"
+    },
+    {
+      "shotId": "scan",
+      "timing": "aligned"
+    },
+    {
+      "shotId": "select",
+      "timing": "aligned"
+    },
+    {
+      "shotId": "enforce",
+      "timing": "aligned"
+    },
+    {
+      "shotId": "try",
+      "timing": "aligned"
+    }
+  ],
+  "caption_cues": 19,
+  "full_decode": true,
+  "transcript_advisory": {
+    "phrase": "The selected schemas total two thousand nine hundred thirty four estimated tokens.",
+    "observed_final_asr": "The selected schema is total 2 ,934 estimated tokens.",
+    "observed_per_shot_alignment": "The same phrase including the spelled-out number is aligned.",
+    "assessment": "Recognizer normalization appears to account for the warning; human listening is separate."
+  },
+  "source_render_sha256": "ce62e466ed7d219e98d3e034102cf929a516c4d72ce5aad57f0c29ac750a0249",
+  "delivery_processing": "Audio-only loudness normalization toward -16 LUFS and -1.5 dBTP; video stream copied and caption timing preserved.",
+  "source_render_duration_seconds": 44.533333
+}

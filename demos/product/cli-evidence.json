@@ -1,0 +1,88 @@
+{
+  "package": "mcp-context-budget",
+  "version": "0.4.0",
+  "fixture": "bundled synthetic demo_catalog; static/offline; no provider tokenization benchmark",
+  "commands": {
+    "scan": {
+      "argv": [
+        "mcp-context-budget",
+        "scan",
+        "--tool-list",
+        "demo-tools.json",
+        "--out",
+        "report.md",
+        "--lock-out",
+        "full.lock.json"
+      ],
+      "exit_code": 0,
+      "stdout": "SCAN_SERVERS=5\nSCAN_TOOLS=120\nSCHEMA_TOKENS=1837820\n",
+      "stderr": ""
+    },
+    "select": {
+      "argv": [
+        "mcp-context-budget",
+        "select",
+        "--tool-list",
+        "demo-tools.json",
+        "--task",
+        "triage a GitHub issue and update one ticket",
+        "--max-tools",
+        "8",
+        "--max-schema-tokens",
+        "6000",
+        "--out-lock",
+        "selected.lock.json"
+      ],
+      "exit_code": 0,
+      "stdout": "SELECTED_TOOLS=5\nAFTER_SCHEMA_TOKENS=2934\nSELECTED_TOOL=linear/update_ticket\nSELECTED_TOOL=github/update_issue\nSELECTED_TOOL=github/get_issue\nSELECTED_TOOL=linear/search_ticket\nSELECTED_TOOL=github/list_issue_comments\n",
+      "stderr": ""
+    },
+    "pass": {
+      "argv": [
+        "mcp-context-budget",
+        "check",
+        "--lock",
+        "selected.lock.json",
+        "--max-schema-tokens",
+        "6000",
+        "--max-response-tokens",
+        "4000"
+      ],
+      "exit_code": 0,
+      "stdout": "SELECTED_SCHEMA_TOKENS=2934\nBUDGET_STATUS=PASS\n",
+      "stderr": ""
+    },
+    "fail": {
+      "argv": [
+        "mcp-context-budget",
+        "check",
+        "--lock",
+        "full.lock.json",
+        "--max-schema-tokens",
+        "6000",
+        "--max-response-tokens",
+        "4000"
+      ],
+      "exit_code": 1,
+      "stdout": "SELECTED_SCHEMA_TOKENS=1837820\nBUDGET_STATUS=FAIL\nVIOLATION=selected_schema_tokens 1837820 exceeds cap 6000\n",
+      "stderr": ""
+    },
+    "demo": {
+      "argv": [
+        "mcp-context-budget",
+        "demo",
+        "--task",
+        "triage a GitHub issue and update one ticket",
+        "--max-tools",
+        "8",
+        "--max-schema-tokens",
+        "6000",
+        "--max-response-tokens",
+        "4000"
+      ],
+      "exit_code": 0,
+      "stdout": "DEMO_CATALOG_SERVERS=5\nDEMO_CATALOG_TOOLS=120\nBEFORE_SCHEMA_TOKENS=1837820\nSELECTED_TOOLS=5\nAFTER_SCHEMA_TOKENS=2934\nOVERSIZED_RESPONSE_FIXTURE=flagged\nBUDGET_STATUS=PASS\nSELECTED_TOOL=linear/update_ticket\nSELECTED_TOOL=github/update_issue\nSELECTED_TOOL=github/get_issue\nSELECTED_TOOL=linear/search_ticket\nSELECTED_TOOL=github/list_issue_comments\n",
+      "stderr": ""
+    }
+  }
+}
