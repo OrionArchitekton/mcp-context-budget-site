@@ -1,0 +1,77 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.040
+Your MCP tool list can crowd the
+
+2
+00:00:02.040 --> 00:00:04.760
+context before an agent starts. This is
+
+3
+00:00:04.760 --> 00:00:07.480
+MCP context budget, a local tool for
+
+4
+00:00:07.480 --> 00:00:09.150
+measuring and enforcing that surface.
+
+5
+00:00:09.400 --> 00:00:11.910
+I'm using the package's bundled synthetic fixture:
+
+6
+00:00:12.200 --> 00:00:14.530
+five servers and one hundred twenty tools.
+
+7
+00:00:15.180 --> 00:00:17.460
+These are estimated schema tokens, not a
+
+8
+00:00:17.460 --> 00:00:18.310
+provider benchmark.
+
+9
+00:00:18.570 --> 00:00:21.530
+For issue triage, select keeps five relevant
+
+10
+00:00:21.530 --> 00:00:23.540
+tools under a six thousand token cap.
+
+11
+00:00:24.170 --> 00:00:26.830
+The selected schemas total two thousand nine
+
+12
+00:00:26.830 --> 00:00:28.640
+hundred thirty four estimated tokens.
+
+13
+00:00:28.900 --> 00:00:31.920
+The selected lock passes. The original full
+
+14
+00:00:31.920 --> 00:00:34.180
+catalog fails the same cap and returns
+
+15
+00:00:34.180 --> 00:00:36.760
+a nonzero exit code, so CI can
+
+16
+00:00:36.760 --> 00:00:37.630
+stop the regression.
+
+17
+00:00:37.930 --> 00:00:40.400
+Install from PyPI, try the bundled demo,
+
+18
+00:00:40.550 --> 00:00:42.690
+then scan your own tools. The source
+
+19
+00:00:42.690 --> 00:00:44.420
+and quickstart are linked below.

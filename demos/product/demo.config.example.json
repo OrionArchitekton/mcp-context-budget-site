@@ -1,0 +1,40 @@
+{
+  "script": "./DEMO_SCRIPT.md",
+  "dashboardBaseUrl": "http://127.0.0.1:8080/",
+  "out": "./out",
+  "resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "fps": 30,
+  "maxDurationSec": 100,
+  "capture": {
+    "engine": "screencast",
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "settleMs": 600
+  },
+  "theme": {
+    "captionFont": "DejaVu Sans",
+    "captionSize": 38,
+    "captions": "wordpop",
+    "captionMarginV": 35,
+    "cursor": false,
+    "frame": {
+      "enabled": false
+    },
+    "annotations": {
+      "enabled": false
+    },
+    "fadeInMs": 150
+  },
+  "audio": {
+    "soundDesign": false
+  },
+  "motion": {
+    "zoomOnAction": false,
+    "livingCamera": false
+  }
+}

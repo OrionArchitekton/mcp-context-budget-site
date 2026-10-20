@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>MCP context budget: recorded CLI demo</title><style>
+*{box-sizing:border-box}body{margin:0;width:1920px;height:1080px;background:#0b1721;color:#f5f5f0;font-family:Arial,sans-serif;padding:70px 100px}header{display:flex;justify-content:space-between;font:18px monospace;color:#b6c1c5;letter-spacing:2px}header strong{color:#e8a96a}section{display:none;margin-top:66px}.eyebrow{font:18px monospace;letter-spacing:3px;color:#e8a96a}h1{font-size:66px;letter-spacing:-2px;margin:20px 0 16px;line-height:1.1}.intro{font-size:27px;color:#c6d1d6;margin:0 0 30px}pre{background:#14242f;border:1px solid #344854;border-radius:12px;padding:24px 30px;font:30px/1.3 'DejaVu Sans Mono',monospace;white-space:pre-wrap;margin:0;color:#a5e1cb}.cmd{color:#f0f2ed}.exit{color:#b4c6d0;font-size:21px}.split{display:grid;grid-template-columns:1fr 1.25fr;gap:24px}.split pre{font-size:26px;min-height:330px}.split h3{font:19px monospace;color:#b6c1c5}.destination{font:28px monospace;color:#e8a96a;margin-top:30px}footer{position:absolute;left:100px;right:100px;bottom:130px;font:18px/1.5 monospace;color:#adbdc5;border-top:1px solid #344854;padding-top:16px}
+</style><header><strong>DM / DAN MERCEDE</strong><span>OPEN SOURCE / v0.4.0 / MIT</span></header><section id="problem"><div class="eyebrow">01 / MCP-CONTEXT-BUDGET</div><h1>Your tool list has a budget.</h1><p class="intro">Measure the surface before the task starts.</p><pre><span class="cmd">$ mcp-context-budget check \
+  --lock full.lock.json \
+  --max-schema-tokens 6000 \
+  --max-response-tokens 4000</span>
+
+SELECTED_SCHEMA_TOKENS=1837820
+BUDGET_STATUS=FAIL
+VIOLATION=selected_schema_tokens 1837820 exceeds cap 6000
+
+<span class="exit">exit 1</span></pre></section><section id="scan"><div class="eyebrow">02 / MCP-CONTEXT-BUDGET</div><h1>Start with the full catalog.</h1><p class="intro">Five servers. 120 tools. A deliberately oversized fixture.</p><pre><span class="cmd">$ mcp-context-budget scan \
+  --tool-list demo-tools.json \
+  --out report.md \
+  --lock-out full.lock.json</span>
+
+SCAN_SERVERS=5
+SCAN_TOOLS=120
+SCHEMA_TOKENS=1837820
+
+<span class="exit">exit 0</span></pre></section><section id="select"><div class="eyebrow">03 / MCP-CONTEXT-BUDGET</div><h1>Keep the tools for this task.</h1><p class="intro">Issue triage: five selected tools, under a 6,000-token cap.</p><pre><span class="cmd">$ mcp-context-budget select \
+  --tool-list demo-tools.json \
+  --task &#x27;triage a GitHub issue and update one ticket&#x27; \
+  --max-tools 8 \
+  --max-schema-tokens 6000 \
+  --out-lock selected.lock.json</span>
+
+SELECTED_TOOLS=5
+AFTER_SCHEMA_TOKENS=2934
+
+<span class="exit">exit 0</span></pre></section><section id="enforce"><div class="eyebrow">04 / MCP-CONTEXT-BUDGET</div><h1>Make the budget a CI gate.</h1><p class="intro">The same cap accepts the selected lock and rejects the full catalog.</p><div class="split"><div><h3>SELECTED LOCK</h3><pre><span class="cmd">$ mcp-context-budget check \
+  --lock selected.lock.json \
+  --max-schema-tokens 6000 \
+  --max-response-tokens 4000</span>
+
+SELECTED_SCHEMA_TOKENS=2934
+BUDGET_STATUS=PASS
+
+<span class="exit">exit 0</span></pre></div><div><h3>FULL CATALOG</h3><pre><span class="cmd">$ mcp-context-budget check \
+  --lock full.lock.json \
+  --max-schema-tokens 6000 \
+  --max-response-tokens 4000</span>
+
+SELECTED_SCHEMA_TOKENS=1837820
+BUDGET_STATUS=FAIL
+VIOLATION=selected_schema_tokens 1837820 exceeds cap 6000
+
+<span class="exit">exit 1</span></pre></div></div></section><section id="try"><div class="eyebrow">05 / MCP-CONTEXT-BUDGET</div><h1>Try the bundled demo.</h1><p class="intro">Local CLI. Static fixtures. No API calls.</p><pre><span class="cmd">$ pip install mcp-context-budget==0.4.0
+
+$ mcp-context-budget demo \
+  --task "triage a GitHub issue and update one ticket" \
+  --max-tools 8 \
+  --max-schema-tokens 6000 \
+  --max-response-tokens 4000</span></pre><p class="destination">danmercede.com/works/mcp-context-budget/</p></section><footer>RECORDED CLI OUTPUT EXCERPTS / BUNDLED SYNTHETIC FIXTURE / TOKEN ESTIMATES, NOT A PROVIDER BENCHMARK<br>Edited replay of real commands. No hosted MCP servers or model calls.</footer><script>const scene=new URLSearchParams(location.search).get('scene')||'problem';document.getElementById(scene).style.display='block';</script></html>

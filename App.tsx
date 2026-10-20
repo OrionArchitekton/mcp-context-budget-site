@@ -62,6 +62,7 @@ const App: React.FC = () => {
     name,
     tagline,
     credibility,
+    video,
     problem,
     whatItDoes,
     cta,
@@ -116,6 +117,24 @@ const App: React.FC = () => {
             </a>
           </div>
         </header>
+
+        <section id="product-demo" aria-labelledby="product-demo-title" className="mt-8">
+          <h2 id="product-demo-title" className="text-lg font-semibold mb-3">{video.title}</h2>
+          <figure>
+            <video controls playsInline preload="none" poster={video.poster}
+              width={1920} height={1080} aria-label={video.title}
+              className="w-full rounded-md bg-neutral-900 aspect-video">
+              <source src={video.src} type="video/mp4" />
+              <track kind="captions" srcLang="en" label="English" src={video.captions} />
+              <a href={video.src}>Download the demo video</a>
+            </video>
+            <figcaption className="text-sm text-neutral-600 mt-3 leading-relaxed">{video.disclosure}</figcaption>
+          </figure>
+          <details className="mt-3 text-sm text-neutral-600 leading-relaxed">
+            <summary className="cursor-pointer text-neutral-900 underline underline-offset-4">Read the transcript</summary>
+            <p className="mt-3">{video.transcript}</p>
+          </details>
+        </section>
 
         {/* 2. The problem */}
         <section>

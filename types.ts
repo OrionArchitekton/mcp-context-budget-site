@@ -27,6 +27,14 @@ export interface ProductData {
   canonical: string;
   /** SEO meta description. */
   metaDescription: string;
+  video: {
+    title: string;
+    src: string;
+    poster: string;
+    captions: string;
+    disclosure: string;
+    transcript: string;
+  };
   problem: {
     heading: string;
     body: string;

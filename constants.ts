@@ -13,6 +13,14 @@ const PYPI = 'https://pypi.org/project/mcp-context-budget/';
  * quickstart leads with `pip install mcp-context-budget`.
  */
 export const PRODUCT_DATA: ProductData = {
+  video: {
+    title: "Watch scan, select and enforce",
+    src: "/works/mcp-context-budget/media/mcp-context-budget-demo.mp4",
+    poster: "/works/mcp-context-budget/media/mcp-context-budget-demo.jpg",
+    captions: "/works/mcp-context-budget/media/mcp-context-budget-demo.vtt",
+    disclosure: "Recorded CLI output from v0.4.0 using the bundled synthetic fixture and estimated schema tokens. Edited replay with synthetic narration based on Dan's voice. These counts are not a provider benchmark.",
+    transcript: "Your MCP tool list can crowd the context before an agent starts. This is MCP context budget, a local tool for measuring and enforcing that surface. I'm using the package's bundled synthetic fixture: five servers and one hundred twenty tools. These are estimated schema tokens, not a provider benchmark. For issue triage, select keeps five relevant tools under a six thousand token cap. The selected schemas total two thousand nine hundred thirty four estimated tokens. The selected lock passes. The original full catalog fails the same cap and returns a nonzero exit code, so CI can stop the regression. Install from PyPI, try the bundled demo, then scan your own tools. The source and quickstart are linked below."
+  },
   name: 'mcp-context-budget',
   tagline:
     'Measure and enforce MCP tool-surface budgets before your coding agent starts.',
