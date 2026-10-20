@@ -15,8 +15,10 @@ remain with Dan.
 
 Preview the production build with `npm run preview`. At desktop and mobile sizes,
 start playback, seek to the enforcement scene, enable captions and open the
-transcript. Repeat without JavaScript. Confirm no media request starts before
-interaction, no autoplay, no missing media and no horizontal overflow. Record
+transcript. Repeat without JavaScript. Confirm the MP4 does not preload in full
+before interaction; poster requests are expected. Check for no autoplay, missing
+media or horizontal overflow. Confirm the download link stays visible outside
+the player when playback is unavailable. Record
 which release and media hash were verified.
 
 The approved site PR deploys through the existing hosting integration. This

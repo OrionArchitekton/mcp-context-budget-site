@@ -24,6 +24,9 @@ test('the product demo is playable and accurately disclosed in initial HTML', ()
   assert.ok(source, 'demo must include a playable source');
   assert.match(source, /src="\/works\/mcp-context-budget\/media\/[^"?#]+\.mp4"/);
   assert.match(source, /type="video\/mp4"/);
+  const outsidePlayer = html.replace(/<video\b[^>]*>[\s\S]*?<\/video>/g, '');
+  assert.match(outsidePlayer, /<a\b[^>]*href="\/works\/mcp-context-budget\/media\/[^"?#]+\.mp4"[^>]*\bdownload\b/,
+    'the download fallback must remain available when MP4 playback is unsupported');
   assert.match(html, /bundled synthetic fixture/);
   assert.match(html, /estimated schema tokens/);
   assert.match(html, /synthetic narration/);
