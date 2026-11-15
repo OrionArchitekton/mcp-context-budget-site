@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "everything": {"command": "<node>", "args": ["<SP>/npmsrv/node_modules/@modelcontextprotocol/server-everything/dist/index.js"]},
+    "filesystem": {"command": "<node>", "args": ["<SP>/npmsrv/node_modules/@modelcontextprotocol/server-filesystem/dist/index.js", "<SP>/run/allowed"]},
+    "memory": {"command": "<node>", "args": ["<SP>/npmsrv/node_modules/@modelcontextprotocol/server-memory/dist/index.js"], "env": {"MEMORY_FILE_PATH": "<SP>/run/memstore/memory.jsonl"}},
+    "sequential-thinking": {"command": "<node>", "args": ["<SP>/npmsrv/node_modules/@modelcontextprotocol/server-sequential-thinking/dist/index.js"]},
+    "git": {"command": "<SP>/pysrv/bin/mcp-server-git", "args": ["--repository", "<SP>/run/repo"]},
+    "time": {"command": "<SP>/pysrv/bin/mcp-server-time", "args": []},
+    "fetch": {"command": "<SP>/pysrv/bin/mcp-server-fetch", "args": []}
+  }
+}

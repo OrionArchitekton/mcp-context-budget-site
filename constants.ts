@@ -142,7 +142,23 @@ export const PRODUCT_DATA: ProductData = {
     lines: [
       {
         kind: 'comment',
-        text: '# Real run on 2026-11-14 (UTC): mcp-context-budget 0.4.0 from PyPI against the seven MCP reference servers at pinned versions',
+        text: '# Real run on 2026-11-14 (UTC): mcp-context-budget 0.4.0 from PyPI against the seven MCP reference servers at pinned versions:',
+      },
+      {
+        kind: 'comment',
+        text: '#   everything 2.3.0, filesystem 2.3.0, memory 2.1.1, sequential-thinking 2.1.1 (npm)',
+      },
+      {
+        kind: 'comment',
+        text: '#   git 2026.11.11, time 2026.11.11, fetch 2026.11.11 (PyPI)',
+      },
+      {
+        kind: 'comment',
+        text: '# A separate live run, not the synthetic five-server fixture in the video above.',
+      },
+      {
+        kind: 'comment',
+        text: '# Config, locks and captured output: github.com/OrionArchitekton/mcp-context-budget-site/tree/main/demos/live-run',
       },
       { kind: 'output', text: '' },
       { kind: 'comment', text: '# 1. Measure the live tool surface of all seven servers' },

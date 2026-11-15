@@ -38,3 +38,9 @@ warning is retained in the render evidence; listening acceptance is separate.
 The raw pipeline render is preserved separately. Delivery normalizes its audio
 toward -16 LUFS and -1.5 dBTP, copying the video stream and preserving caption
 timing. The media manifest binds both source-render and delivered-file hashes.
+
+The Demo terminal further down the page is a separate, live run: the seven MCP
+reference servers at pinned versions, scanned on 2026-11-14 (UTC). Its config,
+locks, report and captured output are in `demos/live-run/`, and
+`tests/live-run.test.mjs` fails the build if the terminal shows a number those
+files do not record.
