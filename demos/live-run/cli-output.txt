@@ -1,0 +1,36 @@
+# Captured stdout and exit codes of the 2026-11-14 (UTC) live run. Lines not starting with # are copied verbatim from the run record.
+# Server startup notices on stderr are omitted. Same folder and config (mcp.template.json) throughout.
+# scan: 2026-11-14T23:49:09Z to 23:49:12Z (UTC)
+$ mcp-context-budget scan --config mcp.json --allow-start --start-timeout-seconds 20 --max-stdio-bytes 1048576 --out scan.report.md --lock-out scan.lock.json
+SCAN_SERVERS=7
+SCAN_TOOLS=60
+SCHEMA_TOKENS=11061
+rc=0
+# check, select, check: 2026-11-14T23:49:59Z to 23:50:02Z, then 23:50:35Z to 23:50:39Z (UTC)
+# Short forms below: each command is mcp-context-budget <subcommand>; select used the same
+# --config mcp.json --allow-start --start-timeout-seconds 20 --max-stdio-bytes 1048576 options as scan
+# and wrote --out-lock task.lock.json.
+$ check --lock scan.lock.json --max-schema-tokens 4000
+SELECTED_SCHEMA_TOKENS=11061
+BUDGET_STATUS=FAIL
+VIOLATION=selected_schema_tokens 11061 exceeds cap 4000
+rc=1
+$ select --task "review the unstaged git diff and read the changed file" --max-tools 6 --max-schema-tokens 4000
+SELECTED_TOOLS=6
+AFTER_SCHEMA_TOKENS=786
+SELECTED_TOOL=git/git_diff_unstaged
+SELECTED_TOOL=git/git_diff_staged
+SELECTED_TOOL=git/git_diff
+SELECTED_TOOL=filesystem/read_file
+SELECTED_TOOL=everything/trigger-list-changed
+SELECTED_TOOL=filesystem/read_media_file
+rc=0
+$ check --lock task.lock.json --max-schema-tokens 4000
+SELECTED_SCHEMA_TOKENS=786
+BUDGET_STATUS=PASS
+rc=0
+$ check --lock task.lock.json --max-schema-tokens 4000 --require-tool filesystem/read_text_file
+SELECTED_SCHEMA_TOKENS=786
+BUDGET_STATUS=FAIL
+VIOLATION=required tool missing from selection: filesystem/read_text_file
+rc=1

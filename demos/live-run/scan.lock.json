@@ -1,0 +1,687 @@
+{
+  "config_fingerprint": "539703727b868ed82d0bff648bda19d3725e1cb9ed4c0d4488aeb93415c0a1ef",
+  "estimator": "chars_div_4_v1",
+  "schema_version": 2,
+  "selected_schema_tokens": 11061,
+  "selected_tools": [
+    "everything/echo",
+    "everything/get-annotated-message",
+    "everything/get-env",
+    "everything/get-header-params",
+    "everything/get-resource-links",
+    "everything/get-resource-reference",
+    "everything/get-structured-content",
+    "everything/get-sum",
+    "everything/get-tiny-image",
+    "everything/gzip-file-as-resource",
+    "everything/trigger-list-changed",
+    "everything/trigger-log-messages",
+    "everything/trigger-long-running-operation",
+    "everything/trigger-resource-update",
+    "everything/toggle-simulated-logging",
+    "everything/toggle-subscriber-updates",
+    "fetch/fetch",
+    "filesystem/read_file",
+    "filesystem/read_text_file",
+    "filesystem/read_media_file",
+    "filesystem/read_multiple_files",
+    "filesystem/write_file",
+    "filesystem/append_file",
+    "filesystem/edit_file",
+    "filesystem/create_directory",
+    "filesystem/list_directory",
+    "filesystem/list_directory_with_sizes",
+    "filesystem/directory_tree",
+    "filesystem/move_file",
+    "filesystem/copy_file",
+    "filesystem/search_files",
+    "filesystem/get_file_info",
+    "filesystem/list_allowed_directories",
+    "git/git_status",
+    "git/git_diff_unstaged",
+    "git/git_diff_staged",
+    "git/git_diff",
+    "git/git_commit",
+    "git/git_add",
+    "git/git_reset",
+    "git/git_log",
+    "git/git_create_branch",
+    "git/git_checkout",
+    "git/git_merge",
+    "git/git_show",
+    "git/git_branch",
+    "git/git_remote",
+    "memory/create_entities",
+    "memory/create_relations",
+    "memory/add_observations",
+    "memory/delete_entities",
+    "memory/delete_observations",
+    "memory/delete_relations",
+    "memory/read_graph",
+    "memory/search_nodes",
+    "memory/open_nodes",
+    "sequential-thinking/sequentialthinking",
+    "time/get_current_time",
+    "time/convert_time",
+    "time/get_time_ago"
+  ],
+  "server_count": 7,
+  "source_manifest": {
+    "servers": {
+      "everything": {
+        "allow_start": true,
+        "args": [
+          "<SP>/npmsrv/node_modules/@modelcontextprotocol/server-everything/dist/index.js"
+        ],
+        "command": "<node>",
+        "env": {},
+        "live_tools_listed": 16,
+        "stdio_framing": "auto"
+      },
+      "fetch": {
+        "allow_start": true,
+        "args": [],
+        "command": "<SP>/pysrv/bin/mcp-server-fetch",
+        "env": {},
+        "live_tools_listed": 1,
+        "stdio_framing": "auto"
+      },
+      "filesystem": {
+        "allow_start": true,
+        "args": [
+          "<SP>/npmsrv/node_modules/@modelcontextprotocol/server-filesystem/dist/index.js",
+          "<SP>/run/allowed"
+        ],
+        "command": "<node>",
+        "env": {},
+        "live_tools_listed": 16,
+        "stdio_framing": "auto"
+      },
+      "git": {
+        "allow_start": true,
+        "args": [
+          "--repository",
+          "<SP>/run/repo"
+        ],
+        "command": "<SP>/pysrv/bin/mcp-server-git",
+        "env": {},
+        "live_tools_listed": 14,
+        "stdio_framing": "auto"
+      },
+      "memory": {
+        "allow_start": true,
+        "args": [
+          "<SP>/npmsrv/node_modules/@modelcontextprotocol/server-memory/dist/index.js"
+        ],
+        "command": "<node>",
+        "env": {
+          "MEMORY_FILE_PATH": "<redacted>"
+        },
+        "live_tools_listed": 9,
+        "stdio_framing": "auto"
+      },
+      "sequential-thinking": {
+        "allow_start": true,
+        "args": [
+          "<SP>/npmsrv/node_modules/@modelcontextprotocol/server-sequential-thinking/dist/index.js"
+        ],
+        "command": "<node>",
+        "env": {},
+        "live_tools_listed": 1,
+        "stdio_framing": "auto"
+      },
+      "time": {
+        "allow_start": true,
+        "args": [],
+        "command": "<SP>/pysrv/bin/mcp-server-time",
+        "env": {},
+        "live_tools_listed": 3,
+        "stdio_framing": "auto"
+      }
+    }
+  },
+  "tool_count": 60,
+  "tools": {
+    "everything/echo": {
+      "description": "Echoes back the input string",
+      "name": "echo",
+      "profile": "default",
+      "schema_hash": "0c8e61c6bed11d6498e906799b6d8731c32ac0d6d3729a0746f5769771f6a854",
+      "schema_tokens": 75,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-annotated-message": {
+      "description": "Demonstrates how annotations can be used to provide metadata about content.",
+      "name": "get-annotated-message",
+      "profile": "default",
+      "schema_hash": "3cf2d1efbe7fdf9f622e30423bb7e18f40a73cb03a226530a7f2de21e2120d44",
+      "schema_tokens": 139,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-env": {
+      "description": "Returns all environment variables, helpful for debugging MCP server configuration. Values of credential-like names (a KEY, TOKEN, SECRET, PASSWORD, PASSWD, CREDENTIAL, AUTH or COOKIE name segment) are masked as \"<redacted>\" unless GET_ENV_INCLUDE_SECRETS is set to 1 or true in the server's environment.",
+      "name": "get-env",
+      "profile": "default",
+      "schema_hash": "1b5cd47cb2a4672c5186efbea8f4bd20cb107fd2ea27c72692d4aee1d15b56e6",
+      "schema_tokens": 125,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-header-params": {
+      "description": "Returns its region argument and the Mcp-Param-Region HTTP header it arrived in. Demonstrates x-mcp-header (a 2026-07-28 Streamable HTTP client mirrors the argument into the header) and JSON Schema 2020-12 input and output schemas.",
+      "name": "get-header-params",
+      "profile": "default",
+      "schema_hash": "396d7d35be981639658ea7875a749ff605d7e6bd4ab7373624a90fea60028c0f",
+      "schema_tokens": 191,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-resource-links": {
+      "description": "Returns up to ten resource links that reference different types of resources",
+      "name": "get-resource-links",
+      "profile": "default",
+      "schema_hash": "0f06cf3aa1ffec38dbc4496c20c52d2e96cd57026ad5121c6b0d698fd3001f60",
+      "schema_tokens": 100,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-resource-reference": {
+      "description": "Returns a resource reference that can be used by MCP clients",
+      "name": "get-resource-reference",
+      "profile": "default",
+      "schema_hash": "f32aebf871a19572ff51235f5e1be8ef9fd94dbfdc01c05e8a802098d324c721",
+      "schema_tokens": 133,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-structured-content": {
+      "description": "Returns structured content along with an output schema for client data validation",
+      "name": "get-structured-content",
+      "profile": "default",
+      "schema_hash": "b2606dde7596b7a00666b3ac631895521fa18e119d210f436ce0143a4ce34c9b",
+      "schema_tokens": 104,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-sum": {
+      "description": "Returns the sum of two numbers",
+      "name": "get-sum",
+      "profile": "default",
+      "schema_hash": "1753f7747cdd91b7871390abd76a302d8882406ddde66f13f56f3c574d94fb59",
+      "schema_tokens": 87,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/get-tiny-image": {
+      "description": "Returns a tiny MCP logo image.",
+      "name": "get-tiny-image",
+      "profile": "default",
+      "schema_hash": "6d51181144564f04f6cab91ecbbb4efff1a3951901c6dd420e35d787e777ed26",
+      "schema_tokens": 58,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/gzip-file-as-resource": {
+      "description": "Compresses a single file using gzip compression. Depending upon the selected output type, returns either the compressed data as a gzipped resource or a resource link, allowing it to be downloaded in a subsequent request: during the current session for a 2025-era client, or for ten minutes at a minted URI on protocol version 2026-07-28.",
+      "name": "gzip-file-as-resource",
+      "profile": "default",
+      "schema_hash": "815e6402d1d50266a78baecec3a1d8bdcb9c64116f85cba209b8495aa2e639c5",
+      "schema_tokens": 287,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/toggle-simulated-logging": {
+      "description": "Toggles simulated, random-leveled logging on or off. Deprecated: 2025-era clients only, since protocol version 2026-07-28 removes logging/setLevel; use trigger-log-messages with a per-request log level instead.",
+      "name": "toggle-simulated-logging",
+      "profile": "default",
+      "schema_hash": "c94dec8bbd399f1cf82d1122a9b25f25c02428f23390f41875e027a490aa2e1f",
+      "schema_tokens": 105,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/toggle-subscriber-updates": {
+      "description": "Toggles simulated resource subscription updates on or off. Deprecated: 2025-era clients only, since protocol version 2026-07-28 removes resources/subscribe; use trigger-resource-update with a subscriptions/listen stream instead.",
+      "name": "toggle-subscriber-updates",
+      "profile": "default",
+      "schema_hash": "fa09662f7de7db1a7c29733fecfa932212b3231ae507f91477cb6e14bde0a0a5",
+      "schema_tokens": 110,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/trigger-list-changed": {
+      "description": "Sends a notifications/<list>/list_changed for the tool, prompt or resource list. On protocol version 2026-07-28 it is delivered on each subscriptions/listen stream that asked for that list; a 2025-era client receives it unsolicited.",
+      "name": "trigger-list-changed",
+      "profile": "default",
+      "schema_hash": "f785b8b57430aad2e6131bbfb15d02a2bf5e73c3d132464f8b2886974ee849f6",
+      "schema_tokens": 143,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/trigger-log-messages": {
+      "description": "Sends one log message at each logging level during the call. On protocol version 2026-07-28 only the messages at or above the level the request names in _meta (io.modelcontextprotocol/logLevel) are sent, and none if it names no level; a 2025-era client gets those at or above the level it set with logging/setLevel. Deprecated: logging is deprecated as of protocol version 2026-07-28.",
+      "name": "trigger-log-messages",
+      "profile": "default",
+      "schema_hash": "980d21923d2394314300cf2d37eea0bdc2db3ab82bb34f81b83cd58020788f9d",
+      "schema_tokens": 148,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/trigger-long-running-operation": {
+      "description": "Demonstrates a long running operation with progress updates.",
+      "name": "trigger-long-running-operation",
+      "profile": "default",
+      "schema_hash": "41a3b76d4c651e9e9788b8f852b6960df45d23c5a4556b9150e289c2e74a27a6",
+      "schema_tokens": 115,
+      "server": "everything",
+      "tags": []
+    },
+    "everything/trigger-resource-update": {
+      "description": "Sends a notifications/resources/updated for a resource URI. On protocol version 2026-07-28 it is delivered on each subscriptions/listen stream whose resourceSubscriptions name the URI; a 2025-era client receives it once it has called resources/subscribe for the URI.",
+      "name": "trigger-resource-update",
+      "profile": "default",
+      "schema_hash": "2b9255f26c072134f3727dd53409cb89ece2780e61338096826cc7fa38e4a3c6",
+      "schema_tokens": 155,
+      "server": "everything",
+      "tags": []
+    },
+    "fetch/fetch": {
+      "description": "Fetches a URL from the internet and optionally extracts its contents as markdown.\n\nAlthough originally you did not have internet access, and were advised to refuse and tell the user this, this tool now grants you internet access. Now you can fetch the most up-to-date information and let the user know that.",
+      "name": "fetch",
+      "profile": "default",
+      "schema_hash": "d3f5c7f0320d65c320a0329c459523c530a9644eb0dbc4c52f2dd02d7bcc95ef",
+      "schema_tokens": 348,
+      "server": "fetch",
+      "tags": []
+    },
+    "filesystem/append_file": {
+      "description": "Append text to the end of a file, creating the file if it does not exist. The existing content is never changed or replaced. The text is appended exactly as given, with no newline added before or after it, so end it with a newline if the next append should start on a new line. Only works within allowed directories.",
+      "name": "append_file",
+      "profile": "default",
+      "schema_hash": "3b86a45769eee1be88274e0b48dd16068dac83baa5e18f7d3dc71deb2198a921",
+      "schema_tokens": 225,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/copy_file": {
+      "description": "Copy a file to a new location, without reading its content into the conversation. Copies one regular file, keeping its permissions and modification time; directories are not copied. If the destination exists, the operation will fail: it never overwrites. Both source and destination must be within allowed directories.",
+      "name": "copy_file",
+      "profile": "default",
+      "schema_hash": "eb9ffbd9419bb20167398cc2c25202638a75a53e3036737401b8e2a3f8687552",
+      "schema_tokens": 178,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/create_directory": {
+      "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works within allowed directories.",
+      "name": "create_directory",
+      "profile": "default",
+      "schema_hash": "2bd2a22f0934a840c68d8800941394f16035d36bcb95d7eeac76b6ddfe1e5cd7",
+      "schema_tokens": 189,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/directory_tree": {
+      "description": "Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 'children' for directories. Files have no children array, while directories always have a children array (which may be empty), except at the last level when 'depth' limits the tree: those directories are not read and have no children array. The output is formatted with 2-space indentation for readability. Only works within allowed directories.",
+      "name": "directory_tree",
+      "profile": "default",
+      "schema_hash": "2b62e950481ad089934c8fad03df710201152b389e7d9ae2b2ba9589489c756d",
+      "schema_tokens": 383,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/edit_file": {
+      "description": "Make line-based edits to a text file. Edits apply in order, each to the result of the ones before it, and each replaces the first match of its oldText with newText. oldText must match the file's text exactly, except that line endings (LF or CRLF) never matter and, when there is no exact match, a run of whole lines matches if each line is equal once leading and trailing whitespace is ignored (newText then takes the file's indentation). Whitespace inside a line must match. If any edit has no match, nothing is written and the error shows the closest lines of the file, numbered, to copy oldText from. Returns a git-style diff showing the changes made. Only works within allowed directories.",
+      "name": "edit_file",
+      "profile": "default",
+      "schema_hash": "f61ddc84e4c27312f52615e757e7ef1fedf2117c664837a6736540c7c7d762d2",
+      "schema_tokens": 393,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/get_file_info": {
+      "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last modified time, permissions, type and hard-link count. This tool is perfect for understanding file characteristics without reading the actual content. Only works within allowed directories.",
+      "name": "get_file_info",
+      "profile": "default",
+      "schema_hash": "e67dffcbec8d47f322940a5b869b57587d70413f5b4831ae988a010e9edf5a7e",
+      "schema_tokens": 176,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/list_allowed_directories": {
+      "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also accessible. Use this to understand which directories and their nested paths are available before trying to access files.",
+      "name": "list_allowed_directories",
+      "profile": "default",
+      "schema_hash": "78b5d3e15cb37ae78efed1856116e1a4799a3d3df987d102114eb479bc2c6e29",
+      "schema_tokens": 115,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/list_directory": {
+      "description": "List the files and directories directly inside a path, each marked [FILE] or [DIR]. Use it to see what a directory contains; when you also need each entry's size or want entries sorted by size, use list_directory_with_sizes instead, and for a recursive view use directory_tree. Returns one line per entry. Only works within allowed directories.",
+      "name": "list_directory",
+      "profile": "default",
+      "schema_hash": "129325525add11c455e25122f83c6e60de77c15ca0fec91d1e1de933ca42accb",
+      "schema_tokens": 181,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/list_directory_with_sizes": {
+      "description": "List the files and directories directly inside a path with each file's size, marked [FILE] or [DIR], sorted by name or by size, largest first (sortBy). Use it when sizes matter, such as finding the largest files; for names only, use list_directory, which returns less text. Returns one line per entry, followed by the totals. Only works within allowed directories.",
+      "name": "list_directory_with_sizes",
+      "profile": "default",
+      "schema_hash": "41db8fc82d7f512cd6cc42ee0d1fe5580f295ecb9f981c69c68e0d30f14e0f06",
+      "schema_tokens": 217,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/move_file": {
+      "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and destination must be within allowed directories.",
+      "name": "move_file",
+      "profile": "default",
+      "schema_hash": "56a37131a876cd867c90d82bc66d89f66426949609d63e2703e3eeb7e1f9c339",
+      "schema_tokens": 235,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/read_file": {
+      "description": "Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead.",
+      "name": "read_file",
+      "profile": "default",
+      "schema_hash": "0348c44f0cbdf31a7bc0a417fb817e8bca4013c23306ca334e7de74e527977d8",
+      "schema_tokens": 184,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/read_media_file": {
+      "description": "Read a file and return it as a base64-encoded content block with its MIME type. Image and audio files are returned as image/audio content; any other file type is returned as an embedded resource. Only works within allowed directories.",
+      "name": "read_media_file",
+      "profile": "default",
+      "schema_hash": "02b5bd81c4c63d52bc173f49f993b5dcbca1aed39331ef74737415ef9439368a",
+      "schema_tokens": 160,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/read_multiple_files": {
+      "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. Only works within allowed directories.",
+      "name": "read_multiple_files",
+      "profile": "default",
+      "schema_hash": "dc485435db1240183a1f63cebfbd10804a1964c75634798a6d7f8aa9fabef10a",
+      "schema_tokens": 185,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/read_text_file": {
+      "description": "Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 'head' parameter to read only the first N lines of a file, or the 'tail' parameter to read only the last N lines of a file. Operates on the file as text regardless of extension. Only works within allowed directories.",
+      "name": "read_text_file",
+      "profile": "default",
+      "schema_hash": "9d8dfbcdf2b42d1880b9ed55755a339a8569f0ffa65f14ecdae5f08e6b7dc01b",
+      "schema_tokens": 278,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/search_files": {
+      "description": "Find files and directories by NAME, not by content: this tool never reads or searches inside files. It walks the tree under 'path' and matches a glob pattern against each entry's path relative to 'path' (case-sensitive). Use '*.ext' to match entries directly under 'path', and '**/*.ext' or '**/name' to match at any depth. Returns full paths to all matching items. Great for finding files when you don't know their exact location. Only searches within allowed directories.",
+      "name": "search_files",
+      "profile": "default",
+      "schema_hash": "5118d3f11421a777ebcb1006f81ab50d7a3303b3aca9de8b907c63416a50517b",
+      "schema_tokens": 368,
+      "server": "filesystem",
+      "tags": []
+    },
+    "filesystem/write_file": {
+      "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without warning. Handles text content with proper encoding. Only works within allowed directories.",
+      "name": "write_file",
+      "profile": "default",
+      "schema_hash": "ed786bbf258334a4e19149172c6240c924680e03fbbfc2e1818b7c226e9ca39b",
+      "schema_tokens": 195,
+      "server": "filesystem",
+      "tags": []
+    },
+    "git/git_add": {
+      "description": "Adds file contents to the staging area",
+      "name": "git_add",
+      "profile": "default",
+      "schema_hash": "3448ec28188e1e0b8ac5bda4bad5e4472149ca6bdf076454c55842336a8e272b",
+      "schema_tokens": 88,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_branch": {
+      "description": "List Git branches",
+      "name": "git_branch",
+      "profile": "default",
+      "schema_hash": "59a9d3f084f4f0b273d0fda07dbde5bf621faea83112d1a79863a8a64650e4de",
+      "schema_tokens": 229,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_checkout": {
+      "description": "Switches branches",
+      "name": "git_checkout",
+      "profile": "default",
+      "schema_hash": "0f87ce36826da50d5a5f06d2cc9a9e8436bb4d12b2029924381e1c5f6621592d",
+      "schema_tokens": 81,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_commit": {
+      "description": "Records changes to the repository",
+      "name": "git_commit",
+      "profile": "default",
+      "schema_hash": "8bfedb2e65e565357227a16d5c5511ff250c48e8f5678c0a575d3f456a064152",
+      "schema_tokens": 81,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_create_branch": {
+      "description": "Creates a new branch from an optional base branch or commit",
+      "name": "git_create_branch",
+      "profile": "default",
+      "schema_hash": "dd87d6fc68ccd15414f5cc764437847194f778ee54abd4f807502a041e9a4555",
+      "schema_tokens": 155,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_diff": {
+      "description": "Shows differences between branches or commits, or across a revision range (main..feature, main...feature)",
+      "name": "git_diff",
+      "profile": "default",
+      "schema_hash": "7741c206d248492bac210a744775bd3f206f04616731543cfb405fdee3d38d27",
+      "schema_tokens": 115,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_diff_staged": {
+      "description": "Shows changes that are staged for commit",
+      "name": "git_diff_staged",
+      "profile": "default",
+      "schema_hash": "f80cabc1f5d353f3b394bc2d1ebff22bbf4a46929b81aae0fa0f1b868445c806",
+      "schema_tokens": 89,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_diff_unstaged": {
+      "description": "Shows changes in the working directory that are not yet staged",
+      "name": "git_diff_unstaged",
+      "profile": "default",
+      "schema_hash": "bc15a926b05f4434d95284b6451a6e8a773f3d0523918f6a845578034733239f",
+      "schema_tokens": 95,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_log": {
+      "description": "Shows the commit logs",
+      "name": "git_log",
+      "profile": "default",
+      "schema_hash": "0b27cdfb5ee124e2f34262e62e5697d1f528a9dc79dfed5df0b3f32ebb15ff41",
+      "schema_tokens": 258,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_merge": {
+      "description": "Merges a branch into the current branch. Fast-forward only unless fast_forward_only is false; refuses a dirty working tree, and aborts a merge that conflicts, leaving the repository unchanged",
+      "name": "git_merge",
+      "profile": "default",
+      "schema_hash": "65e5c9569fdafb26991b3f0f9fa170f8aa1e2f2771a6ca57e33a75693a4b5f29",
+      "schema_tokens": 188,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_remote": {
+      "description": "Lists the repository's remotes with their fetch and push URLs, like `git remote -v`. Credentials embedded in a URL are shown as <redacted>",
+      "name": "git_remote",
+      "profile": "default",
+      "schema_hash": "fec131fce2ae985c629ebf80666570c68961b4b7b537ca78883a328e145c9345",
+      "schema_tokens": 105,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_reset": {
+      "description": "Unstages all staged changes",
+      "name": "git_reset",
+      "profile": "default",
+      "schema_hash": "e5cdbc3bc299464ebf968bd5836a8cc472c8eadc9735b80ea2eb2ae7fdfed707",
+      "schema_tokens": 65,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_show": {
+      "description": "Shows the contents of a commit, or of a file or directory given as <revision>:<path>",
+      "name": "git_show",
+      "profile": "default",
+      "schema_hash": "0fdf4da7fc8f62414ea6e9f8a5822af6f6670b04ef21e8112d36295755f6324e",
+      "schema_tokens": 93,
+      "server": "git",
+      "tags": []
+    },
+    "git/git_status": {
+      "description": "Shows the working tree status",
+      "name": "git_status",
+      "profile": "default",
+      "schema_hash": "8e3107848fd5e3603b2a00ab5787f410d3f3b5b0f512630931d21a46683eab47",
+      "schema_tokens": 66,
+      "server": "git",
+      "tags": []
+    },
+    "memory/add_observations": {
+      "description": "Add new observations to existing entities in the knowledge graph",
+      "name": "add_observations",
+      "profile": "default",
+      "schema_hash": "48736e879c9079bf7d0db8bcfc09f3db540508a3dac3f82b73fa4134ac809246",
+      "schema_tokens": 187,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/create_entities": {
+      "description": "Create multiple new entities in the knowledge graph. An entity whose name already exists, or repeats an earlier entity in the same call, is skipped and its observations are not added; the result lists the skipped names in `skipped`. Use add_observations to add observations to an existing entity.",
+      "name": "create_entities",
+      "profile": "default",
+      "schema_hash": "dbc1b694d73e33a15fa62f260f91248a2cd7841915ddc2f218a1291e396e3dc5",
+      "schema_tokens": 245,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/create_relations": {
+      "description": "Create multiple new relations between entities in the knowledge graph. Relations should be in active voice",
+      "name": "create_relations",
+      "profile": "default",
+      "schema_hash": "2109ff146cb95a7f33e7890d80fb9275f4d6a5c383edcaf4407c9b5994900638",
+      "schema_tokens": 205,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/delete_entities": {
+      "description": "Delete whole entities from the knowledge graph, together with every relation that points to or from them and all their observations. Use it only to remove an entity entirely; to remove a link between two entities and keep both, use delete_relations, and to remove facts from an entity, use delete_observations. Cannot be undone.",
+      "name": "delete_entities",
+      "profile": "default",
+      "schema_hash": "c83dc9770734999711ba8bf63881c6f0cec5573546ea34c293641ec8aa160bd1",
+      "schema_tokens": 165,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/delete_observations": {
+      "description": "Delete specific observations from entities in the knowledge graph",
+      "name": "delete_observations",
+      "profile": "default",
+      "schema_hash": "0fabbfcc362034f11e0be8fd827ae83a6b0fb18b8573772d273404307f439c64",
+      "schema_tokens": 176,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/delete_relations": {
+      "description": "Delete specific relations (from, to, relationType) from the knowledge graph and keep the entities they connect. Each relation must match an existing one exactly on all three fields; if unsure, call open_nodes (or search_nodes) first to read the stored relationType. Use it to remove a link between two entities; to remove an entity itself, use delete_entities. Cannot be undone.",
+      "name": "delete_relations",
+      "profile": "default",
+      "schema_hash": "7f5c510a585550d62d92cf6d6d7496f95445617d85ab540f50a098f59237f2a8",
+      "schema_tokens": 252,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/open_nodes": {
+      "description": "Retrieve specific entities by their exact names, with every relation that touches one of them. Use this when you already know the names (from the conversation, or from an earlier search_nodes or read_graph result); it is the cheapest way to read entities you can name. Prefer search_nodes when you only have a keyword or part of a name. Names that do not exist are skipped.",
+      "name": "open_nodes",
+      "profile": "default",
+      "schema_hash": "cce941d9c2d859a5a325e38e5c4b9a2bfbeb1da7efdbd9486db7cfdea37e1137",
+      "schema_tokens": 274,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/read_graph": {
+      "description": "Read the entire knowledge graph: every entity with its observations, and every relation. The result grows with the graph, so use this only when you need everything; prefer search_nodes to find entities by keyword and open_nodes to read entities whose names you know.",
+      "name": "read_graph",
+      "profile": "default",
+      "schema_hash": "465f280dcad73e279caf83bed3179a4ade331556bab89126f450795fa2b5c080",
+      "schema_tokens": 274,
+      "server": "memory",
+      "tags": []
+    },
+    "memory/search_nodes": {
+      "description": "Search the knowledge graph for entities whose name, type or observations contain the query (case-insensitive). Use this when you have a keyword, a topic or part of a name but not the exact entity names. Prefer open_nodes when you already know the exact names, and use read_graph only when you need the whole graph. Returns the matching entities and every relation that touches one of them.",
+      "name": "search_nodes",
+      "profile": "default",
+      "schema_hash": "1bb30f04a9f3484a28c8fe08ca744fbc19816ba931f17b253329de1b9681f0aa",
+      "schema_tokens": 344,
+      "server": "memory",
+      "tags": []
+    },
+    "sequential-thinking/sequentialthinking": {
+      "description": "A detailed tool for dynamic and reflective problem-solving through thoughts.\nEach thought can build on, question, or revise previous insights as understanding deepens.\n\nWhen to use this tool:\n- Breaking down complex problems into steps\n- Planning and design with room for revision\n- Analysis that might need course correction\n- Problems where the full scope might not be clear initially\n- Tasks that need to maintain context over multiple steps\n- Situations where irrelevant information needs to be filtered out\n\nYou should:\n1. Estimate totalThoughts up front and adjust it up or down as you go; thoughtNumber may exceed it\n2. Question or revise earlier thoughts (isRevision with revisesThought), or branch (branchFromThought with branchId)\n3. Express uncertainty, and ignore information irrelevant to the current step\n4. Generate a solution hypothesis, verify it against the earlier steps, and repeat until satisfied\n5. Set nextThoughtNeeded to false only when truly done and a satisfactory answer is reached",
+      "name": "sequentialthinking",
+      "profile": "default",
+      "schema_hash": "9c0aa41fe1a1dee728aef37497dbbf26221ed2cf28a2dcc28307c4ff8dee7e16",
+      "schema_tokens": 573,
+      "server": "sequential-thinking",
+      "tags": []
+    },
+    "time/convert_time": {
+      "description": "Convert time between timezones",
+      "name": "convert_time",
+      "profile": "default",
+      "schema_hash": "4d236cbeea9e3b6bb3f3099661e1c88927d47f4b23fba9e9646707f1be1718d7",
+      "schema_tokens": 214,
+      "server": "time",
+      "tags": []
+    },
+    "time/get_current_time": {
+      "description": "Get current time in a specific timezone",
+      "name": "get_current_time",
+      "profile": "default",
+      "schema_hash": "14faa8f1fab6b1c64297b39e0058475c9af536542d80ca92ee5ec252750b9a6a",
+      "schema_tokens": 116,
+      "server": "time",
+      "tags": []
+    },
+    "time/get_time_ago": {
+      "description": "Get the time a given number of days, hours, minutes and seconds ago in a specific timezone",
+      "name": "get_time_ago",
+      "profile": "default",
+      "schema_hash": "728092fafc237f2f9ab4b8e0d451cb25ebc1b47956a758b97e14f2c84fc88c81",
+      "schema_tokens": 243,
+      "server": "time",
+      "tags": []
+    }
+  },
+  "total_schema_tokens": 11061
+}
